@@ -1,0 +1,103 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<section id="intro" style="height: 450px">
+    <div class="intro-container">
+      <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+
+        <ol class="carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <div class="carousel-item active" style="background-image: url({% static 'main/img/intro-carousel/7.jpg' %}); object-fit: contain; height: 450px">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>Experience and Integrity</h2>
+                <p>Work that delivers results</p>
+                <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section><!-- #intro -->
+
+  <!--==========================
+      About Us Section
+    ============================-->
+<section id="about" style="background: url({% static 'main/img/about-bg.jpg' %})  top no-repeat fixed;">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>About Cloud Custom Solution</h3>
+
+          <p>At Cloud Custom Solutions (CCS), all the cloud computing applications development we do including web and mobile applications and cloud technologies we develop are designed with one question in mind - How does this new technology help people and what problem does it solve?.
+          </p>
+          <p>
+          	We believe that technology needs to:,<br>
+			Enable something to be done more efficiently and accurately<br>
+			Make us better informed<br>
+			Help to keep people connecteds
+		</p>
+			<p>Overall, technology promises to improve our lives, but in order to do that, it needs to be both intuitive and approachable. And that is where we come in. At Cloud Custom Solutions we take complex ideas and develop intuitive web applications, designed with the end user in mind. We humanize the latest cutting-edge cloud technologies to build interactive experiences that solve big problems and deeply engage users.</p>
+        </header>
+                </div>
+            </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="xabout" style="background-image: linear-gradient(0deg, #fff 0%, #18d26e 50%, #fff 100%);">
+      <div class="container">
+
+        <header class="section-header" >
+          <h3 style="padding-top: 55px">Why Walex Biz Nig</h3>
+        </header>
+
+        <div class="row about-cols">
+
+          <div class="col-md-4 wow fadeInUp">
+            <div class="about-col">
+              <div class="img">
+                <img src="{% static 'main/img/about-mission.jpg' %}" alt="" class="img-fluid">
+                
+              </div>
+              <h2 class="title"><a href="#" style="font-size: 15px; color: #000; font-weight: 900">Walex Biz Nig Aligned with your Business Goals</a></h2>
+              <p>
+                At Walex Biz Nig we deliver exceptional quality custom cloud technology solutions for a variety of companies, government entities and non-profit organizations.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-8 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="about-col">
+              <div class="img">
+                
+                
+              </div>
+              <br>
+              <h2 class="title" ><a style="margin-top: -10px; border-radius: 15px; color: #000" href="#">Clients turn to Cloud Custom Solutions for:</a></h2><hr>
+              <p><i style="font-size: 20px; color: #000" class="fas fa-check"> </i>  Senior-level attention for every project - from start to finish</p>
+				<p><i style="font-size: 20px; color: #000" class="fas fa-check"></i> Strategic thinking and fresh perspectives</p>
+				<p><i style="font-size: 20px; color: #000" class="fas fa-check"></i> Getting startup projects quickly to market by using agile methodology and a multi-faceted team</p>
+				<p><i style="font-size: 20px; color: #000" class="fas fa-check"></i> Expertise in custom cloud-based web applications, SAAS solutions, web portals and more</p>
+				<p><i style="font-size: 20px; color: #000" class="fas fa-check"></i> A can-do attitude and 24/7 work ethic spanning across the globe</p>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    {% include "main/our_processes.html" %}
+
+{% endblock %}

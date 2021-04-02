@@ -1,0 +1,160 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<style type="text/css">
+    .ps-btn{
+        background-color: #ed017f !important;
+        color: #000000 !important;
+    }
+    .ps-btn:hover{
+        background-color: #9a0052 !important;
+        color: #fff !important;
+    }
+    .btn-success {
+        background-color: #9a0052 !important;
+        color: #fff !important;
+        border: none;
+    }
+    .btn-success:hover{
+        background-color: #ed017f !important;
+        color: #000000 !important;
+        border: none;
+    }
+    .btn-success a:hover{
+        
+        color: #000000 !important;
+        border: none;
+    }
+    .alert{
+        box-shadow: 5px 5px 10px #111;
+        border: none;
+    }
+    @keyframes show-toast {
+    0%   {bottom: -100%;}
+    20%  {bottom: 50px;}
+    80%  {bottom: 50px;}
+    100% {bottom: -100%;}
+}
+
+.notification.is-toast {
+    position: fixed;
+    bottom: 100%;
+    right: 20px;
+    animation-name: show-toast;
+    animation-duration: 4s;
+}
+</style>
+<section id="intro" style="height: 450px">
+    <div class="intro-container">
+      <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+
+        <ol class="carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <div class="carousel-item active" style="background-image: url({% static 'main/img/intro-carousel/8.jpg' %}); object-fit: contain; height: 450px">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>Contact Us</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+  </section><!-- #intro -->
+
+  <main id="main">
+<!--==========================
+      Contact Section
+    ============================-->
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="notification is-toast alert alert-{{message.tags}} text-center" role="alert" style="background-color: #1DB954; color: #fff; border-radius: 6px; font-weight: 600;">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+ <section id="contact" class="section-bg wow fadeInUp">
+      <div class="container">
+
+        <div class="section-header">
+          <h3>Contact Us</h3>
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+        </div>
+
+        <div class="row contact-info">
+
+          <div class="col-md-4">
+            <div class="contact-address">
+              <img style="height: 50%; width: 20%;" src="{% static 'main/img/PngItem_98197.png' %}">
+              <h3>Address</h3>
+              <address>{{ setting.address }}</address>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <img style="height: 50%; width: 20%;" src="{% static 'main/img/PngItem_480796.png' %}">
+              <h3>Phone Number</h3>
+              <p><a href="tel:+155895548855">{{ setting.phone }}</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <img style="height: 70%; width: 20%; margin-bottom: 20px" src="{% static 'main/img/PngItem_774692.png' %}">
+              <h3>Email</h3>
+              <p><a href="mailto:info@example.com">{{ setting.email }}</a></p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form">
+          <div id="sendmessage">Your message has been sent. Thank you!</div>
+          <div id="errormessage"></div>
+          <form class="ps-form--contact-us"  action="/contact/" method="post">
+                    {% csrf_token %}
+                    <h3 >Get In Touch</h3>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
+                            <div class="form-group" style="box-shadow: 5px 5px 10px #111; border-radius: 6px;">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Name*">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="form-group" style="box-shadow: 5px 5px 10px #111; border-radius: 6px;">
+                                <input class="form-control" type="text" name="email" placeholder="Email *">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="form-group" style="box-shadow: 5px 5px 10px #111; border-radius: 15px;">
+                                <input class="form-control" name="phone" type="text" placeholder="Phone *">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="form-group" style="box-shadow: 5px 5px 10px #111; border-radius: 15px;">
+                                <input class="form-control" name="subject" type="text" placeholder="Subject *">
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                            <div class="form-group" style="box-shadow: 5px 5px 10px #111; border-radius: 15px;">
+                                <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center"><button style="box-shadow: 5px 5px 10px #111; border-radius: 6px;" type="submit">Send Message</button></div>
+                </form>
+        </div>
+
+      </div>
+    </section>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.810685835092!2d7.462644514787001!3d9.081004393484807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0ae8af754093%3A0x71228d92f375e09d!2sGCL%20Plaza!5e0!3m2!1sen!2sng!4v1617272881561!5m2!1sen!2sng" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+{% endblock %}
