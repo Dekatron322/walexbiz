@@ -24,6 +24,10 @@
   <link href="{% static 'main/lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
   <link href="{% static 'main/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
   <link href="{% static 'main/lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'main/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+  <link href="{% static 'main/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'main/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'main/vendor/venobox/venobox.css' %}" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
   <link href="{% static 'main/css/style.css' %}" rel="stylesheet">
@@ -50,16 +54,15 @@
           <li><a href="{% url 'about' %}">About Us</a></li>
           <li class="menu-has-children"><a href="">Our Services</a>
             <ul>
-              <li><a href="#">Web Application</a></li>
-              <li><a href="#">Mobile Applications</a></li>
-              <li><a href="#">Quality Assurance</a></li>
-              <li><a href="#">Web Hosting</a></li>
+              {% for rs in service %}
+              <li><a href="/service/{{rs.id}}">{{ rs.title }}</a></li>
+              {% endfor %}
             </ul>
           </li>
           <li class="menu-has-children"><a href="">Products</a>
             <ul>
               {% for rs in product %}
-              <li><a href="/product/{{rs.id}}">{{ rs.header }}</a></li>
+              <li><a href="/product/{{rs.id}}">{{ rs.home_header }}</a></li>
               {% endfor %}
             </ul>
           </li>

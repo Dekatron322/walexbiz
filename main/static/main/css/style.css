@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,500i,700');
+@import url('https://fonts.googleapis.com/css?family=Niconne&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Teko:300,400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Levent&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oswald:300i,400,500,700=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto:300i,400,500,700|Rufina:400,700");
+@import url("https://fonts.googleapis.com/css?family=Acme|Lobster|Patua+One|Rubik|Sniglet");
+
+
 body {
   background: #fff;
   color: #666666;
@@ -1230,7 +1240,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 @media (min-width: 768px) {
   #contact .contact-phone {
     border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
+
   }
 }
 

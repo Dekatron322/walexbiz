@@ -111,45 +111,19 @@
         </header>
 
         <div class="row about-cols">
-
-          <div class="col-md-4 wow fadeInUp">
+          {% for rs in service %}
+          <div class="col-md-3 wow fadeInUp">
             <div class="about-col">
               <div class="img">
-                <img src="https://www.cloudcustomsolutions.com/wp-content/uploads/2016/03/cloud-software.jpg" alt="" class="img-fluid">
+                <img src="{{ rs.image.url }}" alt="" class="img-fluid">
               </div>
-              <h2 class="title"><a href="#">Web Application Development</a></h2>
+              <h2 style="font-size: 15px;" class="title"><a href="/service/{{rs.id}}">{{ rs.title }}</a></h2>
               <p>
                
               </p>
             </div>
           </div>
-
-          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="about-col">
-              <div class="img">
-                <img src="https://www.cloudcustomsolutions.com/wp-content/uploads/2016/03/quality-assurance-arizona.png" alt="" class="img-fluid">
-                
-              </div>
-              <h2 class="title"><a href="#">Quality Assurrance Testing</a></h2>
-              <p>
-                
-              </p>
-            </div>
-          </div>
-
-          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
-            <div class="about-col">
-              <div class="img">
-                <img src="https://www.cloudcustomsolutions.com/wp-content/uploads/2016/03/mobile-app-development-arizona.png" alt="" class="img-fluid">
-                
-              </div>
-              <h2 class="title"><a href="#">Mobile Application Development</a></h2>
-              <p>
-               
-              </p>
-            </div>
-          </div>
-
+          {% endfor %}
         </div>
 
       </div>
@@ -167,9 +141,9 @@
           {% for rs in product %}
           <div class="col-md-4 col-lg-6">
             <div class="contact-address">
-              <img src="{{ rs.image.url }}" alt="imag 1">
-              <h3 style="margin-top: 8px">{{ rs.header }}</h3>
-              <address>{{ rs.description }}</address>
+              <img src="{{ rs.home_icon.url }}" alt="imag 1">
+              <h3 style="margin-top: 8px">{{ rs.home_header }}</h3>
+              <address>{{ rs.home_body | safe }}</address>
             </div>
           </div>
           {% endfor %}

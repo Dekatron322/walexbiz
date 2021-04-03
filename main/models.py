@@ -38,20 +38,17 @@ class Header(models.Model):
 		return self.title
 
 class Product(models.Model):
+	home_header = models.CharField(max_length=150, null=True, blank=True)
+	home_icon = models.ImageField(upload_to='uploads/', blank=True, null=True)
+	home_body = models.TextField(blank=True, null=True)
 	header = models.CharField(max_length=150)
+	sbg_header_one = models.CharField(max_length=1000, null=True, blank=True)
+	sbg_header_two = models.TextField(null=True, blank=True)
 	image = models.ImageField(upload_to='uploads/', blank=True, null=True)
-	description = models.TextField()
+	description = models.TextField(blank=True)
 
 	def __str__(self):
-		return self.header
-
-class WorkingProcess(models.Model):
-	title = models.CharField(max_length=50, blank=True, null=True)
-	details = models.TextField(blank=True, null=True)
-
-	def __str__(self):
-		return self.title
-
+		return self.home_header
 
 class Testimonial(models.Model):
 	name = models.CharField(max_length=150)
@@ -60,3 +57,69 @@ class Testimonial(models.Model):
 
 	def __str__(self):
 		return self.name
+
+class Images(models.Model):
+	products = models.ForeignKey(Product, on_delete=models.CASCADE)
+	title = models.CharField(max_length=50, blank=True)
+	image = models.ImageField(upload_to='uploads/', blank=True, null=True)
+
+	def __str__(self):
+		return self.title
+
+class HowItWork(models.Model):
+	products = models.ForeignKey(Product, on_delete=models.CASCADE)
+	icon = models.CharField(max_length=120, blank=True)
+	title = models.CharField(max_length=200, blank=True)
+	detail = models.TextField()
+
+	def __str__(self):
+		return self.title
+
+class AddedBonus(models.Model):
+	products = models.ForeignKey(Product, on_delete=models.CASCADE)
+	icon = models.CharField(max_length=120, blank=True)
+	title = models.CharField(max_length=200, blank=True)
+	detail = models.TextField()
+
+	def __str__(self):
+		return self.title
+
+class TopFeature(models.Model):
+	products = models.ForeignKey(Product, on_delete=models.CASCADE)
+	detail = models.TextField()
+
+class Service(models.Model):
+	title = models.CharField(max_length=200, blank=True, null=True)
+	image = models.ImageField(upload_to='uploads/', blank=True, null=True) 
+
+	def __str__(self):
+		return self.title
+
+class ServiceHeader(models.Model):
+	service = models.ForeignKey(Service, on_delete=models.CASCADE, blank=True, null=True)
+	shc_one = models.CharField(max_length=200, blank=True, null=True)
+	shc_two = models.TextField(blank=True, null=True)
+
+class ServiceBody(models.Model):
+	service = models.ForeignKey(Service, on_delete=models.CASCADE, blank=True, null=True)
+	sbhcontent_one = models.CharField(max_length=200, blank=True, null=True)
+	sbhcontent_two = models.TextField(blank=True, null=True)
+	sbhimage = models.ImageField(upload_to='uploads/', blank=True, null=True)
+	sbdetails = models.TextField(blank=True, null=True)
+
+class ServiceProcess(models.Model):
+	service = models.ForeignKey(Service, on_delete=models.CASCADE, blank=True, null=True)
+	process_icon = models.CharField(max_length=200, blank=True, null=True)
+	process_title = models.CharField(max_length=200, blank=True, null=True)
+
+
+
+
+
+
+
+
+
+
+
+	
