@@ -113,8 +113,8 @@
         <div class="row about-cols">
           {% for rs in service %}
           <div class="col-md-3 wow fadeInUp">
-            <div class="about-col">
-              <div class="img">
+            <div class="about-col" style="box-shadow: 5px 5px 10px #111; border-radius: 15px;">
+              <div class="img" >
                 <img src="{{ rs.image.url }}" alt="" class="img-fluid">
               </div>
               <h2 style="font-size: 15px;" class="title"><a href="/service/{{rs.id}}">{{ rs.title }}</a></h2>
