@@ -117,7 +117,7 @@ class ServiceProcess(models.Model):
 
 class ServiceFeature(models.Model):
 	service = models.ForeignKey(Service, on_delete=models.CASCADE, blank=True, null=True)
-	process_icon = models.ImageField(upload_to='uploads/', blank=True, null=True)
+	process_icon = models.CharField(max_length=200, blank=True, null=True)
 	process_title = models.CharField(max_length=200, blank=True, null=True)
 	description = models.TextField(blank=True, null=True)
 

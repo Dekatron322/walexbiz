@@ -11,53 +11,65 @@
   .about-col{
     transition: transform 450ms;
   }
+  @media (max-width: 600px) {
+    #featured-services{
+      display: none;
+    }
+    .carousel-container{
+      flex-direction: column;
+    }
+    p{
+      display: none;
+    }
+    #intro{
+      height: 500px !important;
+    }
+    .carousel-item{
+      height: 500px !important;
+    }
+  }
+}
 </style>
-<section id="intro">
+<section id="intro" style="height: 350px">
     <div class="intro-container">
       <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
 
         <ol class="carousel-indicators"></ol>
 
         <div class="carousel-inner" role="listbox">
-          <div class="carousel-item active" style="background-image: url({% static 'main/img/website-design-background.png' %});">
+
+          <div class="carousel-item active" style="background-image: url({% static 'main/img/images.jfif' %}); object-fit: contain; height: 350px">
             <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>Welcome to Walexbiz</h2>
-                <h6 style="font-size: 15px; color: #fff">Leading you towards the Era of Digital Information</h6>
-                <a href="{% url 'contact' %}" class="btn-get-started scrollto">Get Started</a>
+              <div class="carousel-content col-lg-6">
+                <h2 style="font-family: Oswald">Walex Biz Nig</h2>
+                <h4 style="color: #fff; margin-top: -30px;">Custom Software Development</h4>
+                <p>Leading you towards the era of digital information</p>
+              </div>
+               <div class="carousel-content col-lg-6">
+                <iframe width="320" height="215" src="https://www.youtube.com/embed/q-SNWGo6-7g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
             </div>
           </div>
-          <div class="carousel-item" style="background-image: url({% static 'main/img/portfolio-background.jpg' %});">
+          <div class="carousel-item" style="background-image: url({% static 'main/img/portfolio-background.jpg' %}); object-fit: contain; height: 350px">
             <div class="carousel-container">
               <div class="carousel-content">
               
-                <h2>Experience and Integrity</h2>
+                <h2 >Experience and Integrity</h2>
                 <h6 style="font-size: 15px; color: #fff">Works that delivers result</h6>
-                <a href="{% url 'about' %}" class="btn-get-started scrollto">About Us</a>
+                
               </div>
             </div>
           </div>
 
-          <div class="carousel-item" style="background-image: url({% static 'main/img/MicrosoftTeams-image.png' %});">
+          <div class="carousel-item" style="background-image: url({% static 'main/img/MicrosoftTeams-image.png' %}); object-fit: contain; height: 350px">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2>Think Big</h2>
                 <h5 style="font-size: 18px; color: #fff">If you think it we can do it</h5>
-                <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
               </div>
             </div>
           </div>
 
-          <div class="carousel-item" style="background-image: url({% static 'main/img/intro-carousel/10.jpg' %});">
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>Welcome to Walexbiz</h2>
-                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum.</p>
-                <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
-              </div>
-            </div>
-          </div>
         </div>
 
         <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
@@ -83,19 +95,19 @@
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-4 box">
+          <div class="col-lg-4 col-md-4 col-4 box">
             <i class="fas fa-laptop"></i>
             <h4 class="title"><a href="">Web Application</a></h4>
             <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
           </div>
 
-          <div class="col-lg-4 box box-bg">
+          <div class="col-lg-4 col-md-4 col-4 box box-bg">
             <i class="fas fa-mobile-alt"></i>
             <h4 class="title"><a href="">Mobile Apps</a></h4>
             <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
           </div>
 
-          <div class="col-lg-4 box">
+          <div class="col-lg-4 col-md-4 col-4 box">
             <i class="fas fa-hands-helping"></i>
             <h4 class="title"><a href="">Quality Assurance</a></h4>
             <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
@@ -122,7 +134,7 @@
         <div class="row about-cols">
           {% for rs in service %}
           <div class="col-md-3 wow fadeInUp">
-            <div class="about-col" style="box-shadow: 5px 5px 10px #111; border-radius: 15px;"><a href="/service/{{rs.id}}">
+            <div class="about-col" style="box-shadow: 5px 5px 10px #111; border-radius: 15px;"><a href="/service/{{rs.id}}/{{ rs.slug }}">
               <div class="img" >
                 <img src="{{ rs.image.url }}" alt="" class="img-fluid">
               </div>
