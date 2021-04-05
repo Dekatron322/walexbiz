@@ -1,8 +1,9 @@
 {% extends 'main/base.html' %}
 {% load static %}
+{% if service_header %}
 {% block content %}
 
-{% if service_header %}
+
 
 
 <section id="intro" style="height: 450px">
@@ -29,7 +30,6 @@
       </div>
     </div>
   </section>
-  {% endif %}
 
   {% if service_body %}
   <section id="about" style="background: url('img/about-bg.jpg') center top no-repeat fixed;">
@@ -145,4 +145,103 @@
 
   {% endif %}
 
+{% if service_feature %}
+      <section id="contact" class="section-bg wow fadeInUp" style="background-image: linear-gradient(0deg, #fff 0%, #cccccc 20%, #fff 100%);">
+      <div class="container">
+
+        <div class="section-header">
+          <h3>Key Features</h3>
+        </div>
+
+        <div class="row contact-info">
+          {% for rs in service_feature %}
+          <div class="col-md-2">
+            <div class="contact-address">
+
+              <i class="{{ rs.process_icon | safe }}"></i>
+              <h5>{{ rs.process_title }}</h5>
+              <p>{{ rs.description }}</p>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+
+      </div>
+      
+
+    </section>
+
+    <section id="about" style="background: url('img/about-bg.jpg') center top no-repeat fixed;">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>How Can We Help You</h3>
+
+          <p>CHOOSING A CUSTOM SOFTWARE DEVELOPMENT AND SAAS APPLICATION PARTNER IS MORE THAN JUST A TECHNOLOGY DECISION</p>
+        </header>
+
+        <div class="row about-cols">
+          {% for rs in service_feature %}
+          <div class="col-md-3 wow fadeInUp">
+            <div class="about-col" >
+              <div class="img" style="align-items: center;">
+                <img  src="{{ rs.process_icon.url }}" alt="" class="img-fluid">
+              </div>
+              <h2  style="font-size: 15px; box-shadow: 5px 5px 10px #111; border-radius: 15px;" class="title">{{ rs.process_title }}</h2>
+              <p style="text-align: center; box-shadow: 5px 5px 10px #111; border-radius: 15px;">
+               {{ rs.description }}
+              </p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </section>
+
+
+
+
+    {% include "main/our_processes.html" %}
+
+    <section id="footer" style="background-color: #111111">
+    <div class="footer-top" style=" margin-top: 50px">
+      <div class="container">
+        <div class="row">
+
+        <div class="col-lg-6 col-md-6 footer-contact">
+            <h4>The WalexBiz Advantage</h4>
+            <ul>
+                <li><i style="color: #18d26e" class="ri-check-double-line"></i> Strong, talented in-house team</li>
+        <li><i style="color: #18d26e" class="ri-check-double-line"></i> 10+ years experience</li>
+        <li><i style="color: #18d26e" class="ri-check-double-line"></i> Structured Framework and Architectural Plan Development</li>
+        <li><i style="color: #18d26e" class="ri-check-double-line"></i> Adherence to Coding Guidelines and Standards</li>
+        <li><i style="color: #18d26e" class="ri-check-double-line"></i> Clean and highly maintainable code</li>
+        <li><i style="color: #18d26e" class="ri-check-double-line"></i> Cross-browser compatibility</li>
+        <li><i style="color: #18d26e" class="ri-check-double-line"></i> Attention to UI UX and User friendly Design</li>
+        <li><i style="color: #18d26e" class="ri-check-double-line"></i> Performance and Load Testing and end to end Quality Assurance</li>
+        <li><i style="color: #18d26e" class="ri-check-double-line"></i> Implementing the latest technology</li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6 col-md-6 footer-contact">
+            <h4>Programming Languages</h4>
+            <p>
+              <img src="https://www.watelectronics.com/wp-content/uploads/different-programming-languages.png">
+            </p>
+
+            <div class="social-links center" >
+              <p><i style="color: #18d26e" class="icofont-check"></i>Python   <i style="color: #18d26e" class="icofont-check"></i>Django  <i style="color: #18d26e" class="icofont-check"></i>AngularJS  <i style="color: #18d26e" class="icofont-check"></i>PHP   <i style="color: #18d26e" class="icofont-check"></i>JavaScript   <i style="color: #18d26e" class="icofont-check"></i>JQuery  <i style="color: #18d26e" class="icofont-check"></i>Bootstrap  <i style="color: #18d26e" class="icofont-check"></i>HTML 5  <i style="color: #18d26e" class="icofont-check"></i>CSS 3</p>
+            </div>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+  {% include "main/brand.html" %}
+
+  {% endif %}
 {% endblock %}
+{% endif %}

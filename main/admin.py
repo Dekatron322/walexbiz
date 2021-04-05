@@ -36,14 +36,21 @@ class ServiceProcessInline(admin.TabularInline):
     readonly_fields = ('id',)
     extra = 1
 
+class ServiceFeatureInline(admin.TabularInline):
+    model = ServiceFeature
+    readonly_fields = ('id',)
+    extra = 1
+
 class ServiceAdmin(admin.ModelAdmin):
-	inlines = [ServiceHeaderInline, ServiceBodyInline, ServiceProcessInline]
+	inlines = [ServiceHeaderInline, ServiceBodyInline, ServiceProcessInline,  ServiceFeatureInline]
 
 class ProductAdmin(admin.ModelAdmin):
     inlines = [ProductsImageInline, HowItWorkInline, AddedBonusInline, TopFeatureInline]
+    prepopulated_fields = {'slug': ('home_header',)}
 
 
 admin.site.register(Setting)
+admin.site.register(Header)
 admin.site.register(Service, ServiceAdmin)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Testimonial)

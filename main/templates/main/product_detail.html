@@ -11,7 +11,7 @@
 
         <div class="carousel-inner" role="listbox">
 
-          <div class="carousel-item active" style="background-image: url({% static 'main/img/intro-carousel/7.jpg' %}); object-fit: contain; height: 450px">
+          <div class="carousel-item active" style="background-image: url({% static 'main/img/MicrosoftTeams-image.png' %}); object-fit: contain; height: 450px">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 style="font-size: 20px">{{ products.header | safe }}</h2>
@@ -123,70 +123,23 @@
     </section>
     {% endif %}
 
+    {% if top_feature %}
      <section id="facts"  class="wow fadeIn" style="background: url({% static 'main/img/earth-518365_1920.jpg' %}) center top no-repeat fixed;">
       <div class="container">
 
         <header class="section-header">
-          <h3>Facts</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+          <h3>Key Features</h3>
         </header>
-
-        <div class="row counters">
-
-  				<div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">274</span>
-            <p>Clients</p>
-  				</div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">421</span>
-            <p>Projects</p>
-  				</div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">1,364</span>
-            <p>Hours Of Support</p>
-  				</div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">18</span>
-            <p>Hard Workers</p>
-  				</div>
-
-  			</div>
-
-        <div class="facts-img">
-          <img src="img/facts-img.png" alt="" class="img-fluid">
+      
+      <div class="row counters">
+        {% for rs in top_feature %}
+  		<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div style="box-shadow: 5px 5px 10px #111; ">
+            <p style="padding: 10px">{{ rs.detail_one }}</p>
         </div>
-
+      </div>
+      {% endfor %}
       </div>
     </section>
-
-{% if images %}
-{% for rs in images %}
-	{{ rs.title}}
-{% endfor %}
-{% endif %}<br>
-
-
-{% if how_it_work %}
-{% for rs in how_it_work %}
-	{{ rs.title }}
-{% endfor %}
-{% endif %}<br>
-
-
-{% if added_bonus %}
-{% for rs in added_bonus %}
-	{{ rs.title }}
-
-{% endfor %}
-{% endif %}<br>
-
-{% if top_feature %}
-{% for rs in top_feature %}
-	{{ rs.detail }}
-{% endfor %}
-{% endif %}
-
+    {% endif %}
 {% endblock %}

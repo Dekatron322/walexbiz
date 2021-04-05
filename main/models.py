@@ -33,6 +33,7 @@ class Header(models.Model):
 	title = models.CharField(max_length=150)
 	image = models.ImageField(upload_to='uploads/', blank=True, null=True)
 	content = models.TextField()
+	pub_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
 	def __str__(self):
 		return self.title
@@ -41,11 +42,12 @@ class Product(models.Model):
 	home_header = models.CharField(max_length=150, null=True, blank=True)
 	home_icon = models.ImageField(upload_to='uploads/', blank=True, null=True)
 	home_body = models.TextField(blank=True, null=True)
-	header = models.CharField(max_length=150)
+	header = models.CharField(max_length=150, blank=True, null=True)
 	sbg_header_one = models.CharField(max_length=1000, null=True, blank=True)
 	sbg_header_two = models.TextField(null=True, blank=True)
 	image = models.ImageField(upload_to='uploads/', blank=True, null=True)
 	description = models.TextField(blank=True)
+	slug = models.SlugField(null=True, blank=True)
 
 	def __str__(self):
 		return self.home_header
@@ -86,11 +88,12 @@ class AddedBonus(models.Model):
 
 class TopFeature(models.Model):
 	products = models.ForeignKey(Product, on_delete=models.CASCADE)
-	detail = models.TextField()
+	detail_one = models.TextField()
 
 class Service(models.Model):
 	title = models.CharField(max_length=200, blank=True, null=True)
 	image = models.ImageField(upload_to='uploads/', blank=True, null=True) 
+	slug = models.SlugField(null=True, blank=True, default="slug")
 
 	def __str__(self):
 		return self.title
@@ -111,6 +114,12 @@ class ServiceProcess(models.Model):
 	service = models.ForeignKey(Service, on_delete=models.CASCADE, blank=True, null=True)
 	process_icon = models.CharField(max_length=200, blank=True, null=True)
 	process_title = models.CharField(max_length=200, blank=True, null=True)
+
+class ServiceFeature(models.Model):
+	service = models.ForeignKey(Service, on_delete=models.CASCADE, blank=True, null=True)
+	process_icon = models.ImageField(upload_to='uploads/', blank=True, null=True)
+	process_title = models.CharField(max_length=200, blank=True, null=True)
+	description = models.TextField(blank=True, null=True)
 
 
 

@@ -1,6 +1,17 @@
 {% extends 'main/base.html' %}
 {% load static %}
 {% block content %}
+
+<style type="text/css">
+  .about-col:hover{
+    transform: scale(1.08);
+    transition: transform 450ms;
+  }
+
+  .about-col{
+    transition: transform 450ms;
+  }
+</style>
 <section id="intro">
     <div class="intro-container">
       <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
@@ -8,33 +19,31 @@
         <ol class="carousel-indicators"></ol>
 
         <div class="carousel-inner" role="listbox">
-
-          <div class="carousel-item active" style="background-image: url({% static 'main/img/intro-carousel/7.jpg' %});">
+          <div class="carousel-item active" style="background-image: url({% static 'main/img/website-design-background.png' %});">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2>Welcome to Walexbiz</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
+                <h6 style="font-size: 15px; color: #fff">Leading you towards the Era of Digital Information</h6>
+                <a href="{% url 'contact' %}" class="btn-get-started scrollto">Get Started</a>
               </div>
             </div>
           </div>
-
-          <div class="carousel-item" style="background-image: url({% static 'main/img/intro-carousel/8.jpg' %});">
+          <div class="carousel-item" style="background-image: url({% static 'main/img/portfolio-background.jpg' %});">
             <div class="carousel-container">
               <div class="carousel-content">
               
-                <h2>Welcome to Walexbiz</h2>
-                <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut.</p>
-                <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
+                <h2>Experience and Integrity</h2>
+                <h6 style="font-size: 15px; color: #fff">Works that delivers result</h6>
+                <a href="{% url 'about' %}" class="btn-get-started scrollto">About Us</a>
               </div>
             </div>
           </div>
 
-          <div class="carousel-item" style="background-image: url({% static 'main/img/intro-carousel/9.jpg' %});">
+          <div class="carousel-item" style="background-image: url({% static 'main/img/MicrosoftTeams-image.png' %});">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>Welcome to Walexbiz</h2>
-                <p>Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt omnis iste natus error sit voluptatem accusantium.</p>
+                <h2>Think Big</h2>
+                <h5 style="font-size: 18px; color: #fff">If you think it we can do it</h5>
                 <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
               </div>
             </div>
@@ -113,11 +122,11 @@
         <div class="row about-cols">
           {% for rs in service %}
           <div class="col-md-3 wow fadeInUp">
-            <div class="about-col" style="box-shadow: 5px 5px 10px #111; border-radius: 15px;">
+            <div class="about-col" style="box-shadow: 5px 5px 10px #111; border-radius: 15px;"><a href="/service/{{rs.id}}">
               <div class="img" >
                 <img src="{{ rs.image.url }}" alt="" class="img-fluid">
               </div>
-              <h2 style="font-size: 15px;" class="title"><a href="/service/{{rs.id}}">{{ rs.title }}</a></h2>
+              <h2 style="font-size: 15px;" class="title">{{ rs.title }}</a></h2>
               <p>
                
               </p>
@@ -140,11 +149,13 @@
         <div class="row contact-info">
           {% for rs in product %}
           <div class="col-md-4 col-lg-6">
+            <a href="/product/{{rs.id}}/{{rs.slug}}">
             <div class="contact-address">
               <img src="{{ rs.home_icon.url }}" alt="imag 1">
               <h3 style="margin-top: 8px">{{ rs.home_header }}</h3>
               <address>{{ rs.home_body | safe }}</address>
             </div>
+            </a>
           </div>
           {% endfor %}
 
@@ -155,7 +166,7 @@
 <!--==========================
       Call To Action Section
     ============================-->
-  <section id="call-to-action" class="wow fadeIn"style="background: linear-gradient(rgba(0, 142, 99, 0.7), rgba(0, 0, 0, 0.7)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWCqujeL9u5_YgTTtqMf-_kwNPcMhUzhaizg&usqp=CAU) fixed center center;" >
+  <section id="call-to-action" class="wow fadeIn"style="background: linear-gradient(rgba(0, 142, 99, 0.7), rgba(0, 0, 0, 0.7)), url({% static 'main/img/intro-carousel/75780004-industry-4-0-wheel-background-with-various-icons.jpg' %})  fixed center center;" >
       <div class="container text-center" >
         <h3>Book a Consultation</h3>
         <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>

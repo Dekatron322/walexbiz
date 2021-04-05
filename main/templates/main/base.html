@@ -55,14 +55,14 @@
           <li class="menu-has-children"><a href="">Our Services</a>
             <ul>
               {% for rs in service %}
-              <li><a href="/service/{{rs.id}}">{{ rs.title }}</a></li>
+              <li><a href="/service/{{rs.id}}/{{ rs.slug }}">{{ rs.title }}</a></li>
               {% endfor %}
             </ul>
           </li>
           <li class="menu-has-children"><a href="">Products</a>
             <ul>
               {% for rs in product %}
-              <li><a href="/product/{{rs.id}}">{{ rs.home_header }}</a></li>
+              <li><a href="/product/{{rs.id}}/{{rs.slug}}">{{ rs.home_header }}</a></li>
               {% endfor %}
             </ul>
           </li>
@@ -90,17 +90,16 @@
 
           <div class="col-lg-3 col-md-6 footer-info">
             <img style="height: 100px; width: 50px; object-fit: contain;" src="{{ setting.image.url }}">
-            <p>{{ setting.footer }}</p>
+            <p>{{ setting.footer_text | safe }}</p>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">About us</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'index' %}">Home</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'about' %}">About us</a></li>
               <li><i class="ion-ios-arrow-right"></i> <a href="#">Services</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="{% url 'contact' %}">Contact</a></li>
             </ul>
           </div>
 
@@ -109,8 +108,8 @@
             <p>
               {{ setting.address }}<br>
 
-              <strong>Phone:</strong> {{ setting.phone }}<br>
-              <strong>Email:</strong> {{ setting.email }}<br>
+              <a href="mailto:{{ setting.email }}" style="color: #fff"><strong>Phone:</strong> {{ setting.phone }}</a><br>
+              <a href="tel:{{ setting.email }}" style="color: #fff"><strong>Email:</strong> {{ setting.email }}</a><br>
             </p>
 
             <div class="social-links">

@@ -4,6 +4,7 @@ from . import views
 # Create your views here.
 def index(request):
 	setting = Setting.objects.get(pk=1)
+	header = Header.objects.all().order_by('-pub_date')
 	product = Product.objects.all()
 	service = Service.objects.all()
 	testimonial = Testimonial.objects.all()
@@ -12,6 +13,7 @@ def index(request):
 			'product':product,
 			'testimonial': testimonial,
 			'service': service,
+			'header':header,
             }
 	return render(request, "main/index.html", context )
 
@@ -33,7 +35,7 @@ def services(request):
 	pass
 
 
-def product_detail(request, id):
+def product_detail(request, id, slug):
 	setting = Setting.objects.get(pk=1)
 	product = Product.objects.all()
 	products = Product.objects.get(pk=id)
@@ -56,7 +58,7 @@ def product_detail(request, id):
 
 	return render(request, 'main/product_detail.html', context)
 
-def service_detail(request, id):
+def service_detail(request, id, slug):
 	setting = Setting.objects.get(pk=1)
 	product = Product.objects.all()
 	service = Service.objects.all()
@@ -64,6 +66,7 @@ def service_detail(request, id):
 	service_body = ServiceBody.objects.filter(service_id=id)
 	service_process = ServiceProcess.objects.filter(service_id=id)
 	service_header = ServiceHeader.objects.filter(service_id=id)
+	service_feature = ServiceFeature.objects.filter(service_id=id)
 		
 	context = {
 			'service': service,
@@ -72,6 +75,7 @@ def service_detail(request, id):
 			'services':services,
 			'service_body':service_body,
 			'service_process':service_process,
+			'service_feature':service_feature,
 			'product':product,
 			}
 
