@@ -26,6 +26,13 @@
     .carousel-content p{
       display: none;
     }
+    h2.walex_two{
+      font-size: 20px !important;
+    }
+    h6.walex_two{
+      font-size: 10px !important;
+
+    }
   }
   @media(max-width: 450px) {
 
@@ -51,6 +58,11 @@
     .carousel-content p{
       display: block;
       margin-bottom: -150px !important;
+
+    }
+
+    a.btn-get-started{
+      display: none !important;
     }
     .carousel-content i:hover{
      color: #1fb141 !important;
@@ -64,8 +76,8 @@
   }
 
 .mybtn{
-  background-color: #18d26e;
-  border: 2px solid #111;
+  background-color: transparent;
+  border: 2px solid #18d26e;
   border-radius: 25px;
   padding: 8px 28px;
   transition: 0.5s;
@@ -81,7 +93,13 @@
   color: #18d26e;
 }
 
-
+h2.walex{
+  position: relative;
+  
+  font-size: 14vw;
+  color: #000 !important;
+  -webkit-text-stroke: 0.1vw #383d52 !important;
+}
 
 </style>
 <section id="intro" style="height: 550px">
@@ -95,10 +113,11 @@
           <div class="carousel-item active" style="background-image: url({% static 'main/img/1234.jpg' %}); object-fit: contain; height: 550px">
             <div class="carousel-container">
               <div class="carousel-content col-lg-6">
-                <h2 style="font-family: Quicksand !important; font-weight: 700">Walex Biz Nig</h2>
-                <h4 style="color: #fff; margin-top: -30px; font-size: 25px">Custom Software Development</h4>
-                <p style="font-size: 20px; font-weight: 300px">Leading you towards the era of digital information<br><br><br><a href="https://www.youtube.com/embed/q-SNWGo6-7g">
+                <h2 class="code" style="font-family: Quicksand !important; font-weight: 700;"><span style="color: #18d26e" class="type"></span></h2>
+                <h4 style="color: #fff; margin-top: -30px; font-size: 18px; font-family: Quicksand">Custom Software Development & <br> Web Hosting Services</h4>
+                <p style="font-family:Quicksand; font-size: 15px; font-weight: 300px; font-family: Quicksand" >Leading you towards the era of digital information<br><br><br><a href="https://www.youtube.com/embed/q-SNWGo6-7g">
                 <i style="color: #18d26e; font-size: 70px; cursor: pointer; position: relative;" class="ri-play-circle-fill"></i></a></p>
+                <a href="{% url 'about' %}" class="btn-get-started scrollto">About Us</a>
                 
               </div>
                <div class="muri carousel-content col-lg-6">
@@ -111,18 +130,20 @@
             <div class="carousel-container">
               <div class="carousel-content">
               
-                <h2>Experience and Integrity</h2>
-                <h6 style="font-size: 15px; color: #fff">Works that delivers result</h6>
+                <h2 class="walex_two" style="text-align: left; margin-left: 15px;">We help businesses reach their<br> full potential on the web</h2>
+                <h6 class="walex_two" style="font-size: 15px; color: #fff; text-align: left; margin-left: 15px">Arm yourself with a cutting edge website solutions to <br>fit your needs today and to grow along <br>with your organization.</h6>
+                <a style="float: left;" href="{% url 'contact' %}" class="btn-get-started scrollto">Contact Us</a>
                 
               </div>
             </div>
           </div>
 
-          <div class="carousel-item" style="font-family: Quicksand !important; font-weight: 700; background-image: url({% static 'main/img/xyz.png' %}); object-fit: contain; height: 550px">
+          <div class="carousel-item" style="font-family: Quicksand !important; font-weight: 700; background-image: url({% static 'main/img/xyz.png' %}); object-fit: contain; height: 550px; text-align: left;">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>Think Big</h2>
-                <h5 style="font-size: 18px; color: #fff">If you think it we can do it</h5>
+                <h2 class="walex_two" style="text-align: left;">Supporting Business Growth <br>With Proactive IT Services</h2>
+                <h6 class="walex_two" style="font-size: 18px; color: #fff; text-align: left;">If you think it we can do it</h6>
+                <a href="{% url 'contact' %}" class="btn-get-started scrollto">Contact Us</a>
               </div>
             </div>
           </div>

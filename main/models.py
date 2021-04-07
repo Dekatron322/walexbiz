@@ -18,6 +18,8 @@ class Setting(models.Model):
 	smtppassword = models.CharField(blank=True, max_length=50)
 	smtpport = models.CharField(blank=True, max_length=50)
 	image = models.ImageField(upload_to='uploads/', blank=True, null=True)
+	footer_logo = models.ImageField(upload_to='uploads/', blank=True, null=True)
+	fav = models.ImageField(upload_to='uploads/', blank=True, null=True)
 	facebook = models.CharField(blank=True, max_length=50)
 	instagram = models.CharField(blank=True, max_length=50)
 	twitter = models.CharField(blank=True, max_length=50)
