@@ -6,8 +6,8 @@ from django.utils import timezone
 class Setting(models.Model):
 
 	title = models.CharField(max_length=150)
-	keywords = models.CharField(max_length=350, null=True)
-	description = models.CharField(max_length=350, null=True)
+	keywords = models.TextField(blank=True, null=True)
+	description = models.TextField(blank=True, null=True)
 	address = models.CharField(blank=True, max_length=150)
 	company = models.CharField(blank=True, max_length=150)
 	phone = models.CharField(blank=True, max_length=15)

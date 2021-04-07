@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from . import views
 from .models import Contact, ContactForm
-from main.models import Setting
+from main.models import *
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 # Create your views here.
@@ -24,7 +24,15 @@ def contact(request):
 
 	form = ContactForm
 	setting = Setting.objects.get(pk=1)
+	product = Product.objects.all()
+	service = Service.objects.all()
+
 	
-	context = {'form':form, 'setting':setting}
+	context = {
+				'form':form, 
+				'setting':setting,
+				'product':product,
+				'service':service,
+			}
 	return render(request,  "contact/contact.html", context)
 

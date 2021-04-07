@@ -1,5 +1,6 @@
 {% extends 'main/base.html' %}
 {% load static %}
+{% block title %} | Homepage{% endblock %}
 {% block content %}
 
 <style type="text/css">
@@ -11,26 +12,79 @@
   .about-col{
     transition: transform 450ms;
   }
-  @media (max-width: 600px) {
-    #featured-services{
-      display: none;
-    }
+  @media (max-width: 800px) {
     .carousel-container{
       flex-direction: column;
     }
-    p{
-      display: none;
-    }
+    
     #intro{
       height: 500px !important;
     }
     .carousel-item{
       height: 500px !important;
     }
+    .carousel-content p{
+      display: none;
+    }
   }
+  @media(max-width: 450px) {
+
+    .carousel-container{
+      flex-direction: column;
+    }
+
+    #intro{
+      height: 450px !important;
+    }
+    .carousel-item{
+      height: 450px !important;
+    }
+    iframe{
+      display: none;
+    }
+    .carousel-content .fa{
+      display: block !important;
+    }
+    .muri{
+      padding-top: 50px;
+    }
+    .carousel-content p{
+      display: block;
+      margin-bottom: -150px !important;
+    }
+    .carousel-content i:hover{
+     color: #1fb141 !important;
+    transition: 450ms;
+    }
+  }
+  @media(min-width: 800px){
+    .carousel-content p i{
+      display: none !important;
+    }
+  }
+
+.mybtn{
+  background-color: #18d26e;
+  border: 2px solid #111;
+  border-radius: 25px;
+  padding: 8px 28px;
+  transition: 0.5s;
+  margin-top: 10px;
 }
+
+.mybtn a:hover{
+  color: #18d26e;
+}
+
+.mybtn:hover{
+  background-color: #111;
+  color: #18d26e;
+}
+
+
+
 </style>
-<section id="intro" style="height: 350px">
+<section id="intro" style="height: 550px">
     <div class="intro-container">
       <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
 
@@ -38,30 +92,33 @@
 
         <div class="carousel-inner" role="listbox">
 
-          <div class="carousel-item active" style="background-image: url({% static 'main/img/images.jfif' %}); object-fit: contain; height: 350px">
+          <div class="carousel-item active" style="background-image: url({% static 'main/img/1234.jpg' %}); object-fit: contain; height: 550px">
             <div class="carousel-container">
               <div class="carousel-content col-lg-6">
-                <h2 style="font-family: Oswald">Walex Biz Nig</h2>
-                <h4 style="color: #fff; margin-top: -30px;">Custom Software Development</h4>
-                <p>Leading you towards the era of digital information</p>
+                <h2 style="font-family: Quicksand !important; font-weight: 700">Walex Biz Nig</h2>
+                <h4 style="color: #fff; margin-top: -30px; font-size: 25px">Custom Software Development</h4>
+                <p style="font-size: 20px; font-weight: 300px">Leading you towards the era of digital information<br><br><br><a href="https://www.youtube.com/embed/q-SNWGo6-7g">
+                <i style="color: #18d26e; font-size: 70px; cursor: pointer; position: relative;" class="ri-play-circle-fill"></i></a></p>
+                
               </div>
-               <div class="carousel-content col-lg-6">
-                <iframe width="320" height="215" src="https://www.youtube.com/embed/q-SNWGo6-7g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+               <div class="muri carousel-content col-lg-6">
+                <iframe width="380" height="250" src="https://www.youtube.com/embed/q-SNWGo6-7g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
               </div>
             </div>
           </div>
-          <div class="carousel-item" style="background-image: url({% static 'main/img/portfolio-background.jpg' %}); object-fit: contain; height: 350px">
+          <div class="carousel-item" style="font-family: Quicksand !important; font-weight: 700; background-image: url({% static 'main/img/portfolio-background.jpg' %}); object-fit: contain; height: 550px;">
             <div class="carousel-container">
               <div class="carousel-content">
               
-                <h2 >Experience and Integrity</h2>
+                <h2>Experience and Integrity</h2>
                 <h6 style="font-size: 15px; color: #fff">Works that delivers result</h6>
                 
               </div>
             </div>
           </div>
 
-          <div class="carousel-item" style="background-image: url({% static 'main/img/MicrosoftTeams-image.png' %}); object-fit: contain; height: 350px">
+          <div class="carousel-item" style="font-family: Quicksand !important; font-weight: 700; background-image: url({% static 'main/img/xyz.png' %}); object-fit: contain; height: 550px">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2>Think Big</h2>
@@ -95,22 +152,27 @@
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-4 col-md-4 col-4 box">
+          <div class="col-lg-4  box center" style="text-align: center;">
             <i class="fas fa-laptop"></i>
-            <h4 class="title"><a href="">Web Application</a></h4>
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+            <h4 class="title" style="font-family: Quicksand; font-weight: 500"><a href="" >Web Application</a></h4>
+            <p class="description"><i class="ri-star-s-line" style="font-size: 15px"></i> clean and easily maintainable code<br>
+              <i class="ri-star-s-line" style="font-size: 15px"></i> Facilitate an optimal environment for multiple<br> programmers to work on the same project<br>
+            </p>
           </div>
 
-          <div class="col-lg-4 col-md-4 col-4 box box-bg">
+          <div class="col-lg-4 box box-bg center" style="text-align: center;">
             <i class="fas fa-mobile-alt"></i>
-            <h4 class="title"><a href="">Mobile Apps</a></h4>
-            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+            <h4 class="title" style="font-family: Quicksand; font-weight: 500"><a href="" style="font-family: Quicksand">Mobile Apps</a></h4>
+            <p class="description"><i class="ri-star-s-line" style="font-size: 15px"></i> Allow clients to mix-and-match, compare <br>or choose an optimal product/solution<br>
+              <i class="ri-star-s-line" style="font-size: 15px"></i> Customize solutions with configurations<br> based on pre-set modules</p>
           </div>
 
-          <div class="col-lg-4 col-md-4 col-4 box">
-            <i class="fas fa-hands-helping"></i>
-            <h4 class="title"><a href="">Quality Assurance</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+          <div class="col-lg-4 box center" style="text-align: center;">
+            <i class="icofont-web"></i>
+            <h4 class="title" style="font-family: Quicksand; font-weight: 500"><a href="">Web Hosting</a></h4>
+            <p class="description"><i class="ri-star-s-line" style="font-size: 15px"></i> Find the right hosting for your domain<br>
+
+            <i class="ri-star-s-line" style="font-size: 15px"></i>Take the stress out of security with <br>low-cost SSL Certificates, PremiumDNS, VPN and more</p>
           </div>
 
           
@@ -126,14 +188,14 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>How Can We Help You</h3>
+          <h3 style="font-family: Quicksand; font-weight: 700">How Can We Help You</h3>
 
-          <p>CHOOSING A CUSTOM SOFTWARE DEVELOPMENT AND SAAS APPLICATION PARTNER IS MORE THAN JUST A TECHNOLOGY DECISION</p>
+          <p style="font-family: Quicksand; font-weight: 500">CHOOSING A CUSTOM SOFTWARE DEVELOPMENT AND SAAS APPLICATION PARTNER IS MORE THAN JUST A TECHNOLOGY DECISION</p>
         </header>
 
         <div class="row about-cols">
           {% for rs in service %}
-          <div class="col-md-3 wow fadeInUp">
+          <div class="col-md-3 col-6 col-sm-6 wow fadeInUp">
             <div class="about-col" style="box-shadow: 5px 5px 10px #111; border-radius: 15px;"><a href="/service/{{rs.id}}/{{ rs.slug }}">
               <div class="img" >
                 <img src="{{ rs.image.url }}" alt="" class="img-fluid">
@@ -154,11 +216,11 @@
       <div class="container">
 
         <div class="section-header">
-          <p>OUR FLAGSHIP PRODUCTS CUSTOMIZED TO MEET YOUR UNIQUE NEEDS</p>
-          <h3 style="margin-top: -30px">Custom Crafted Products</h3>
+          <p style="font-family: Quicksand; font-weight: 500">OUR FLAGSHIP PRODUCTS CUSTOMIZED TO MEET YOUR UNIQUE NEEDS</p>
+          <h3 style="margin-top: -30px; font-family: Quicksand; font-weight: 700">Custom Crafted Products</h3>
         </div>
         
-        <div class="row contact-info">
+        <div class="row contact-info ">
           {% for rs in product %}
           <div class="col-md-4 col-lg-6">
             <a href="/product/{{rs.id}}/{{rs.slug}}">
@@ -166,6 +228,7 @@
               <img src="{{ rs.home_icon.url }}" alt="imag 1">
               <h3 style="margin-top: 8px">{{ rs.home_header }}</h3>
               <address>{{ rs.home_body | safe }}</address>
+              <a href="/product/{{rs.id}}/{{rs.slug}}"><button class="mybtn">Learn more ></button></a>
             </div>
             </a>
           </div>
@@ -178,11 +241,11 @@
 <!--==========================
       Call To Action Section
     ============================-->
-  <section id="call-to-action" class="wow fadeIn"style="background: linear-gradient(rgba(0, 142, 99, 0.7), rgba(0, 0, 0, 0.7)), url({% static 'main/img/intro-carousel/75780004-industry-4-0-wheel-background-with-various-icons.jpg' %})  fixed center center;" >
+  <section id="call-to-action" class="wow fadeIn"style="background: linear-gradient(rgba(0, 142, 99, 0.7), rgba(0, 0, 0, 0.7)), url({% static 'main/img/dedicated.jpg' %})  fixed center center;" >
       <div class="container text-center" >
         <h3>Book a Consultation</h3>
-        <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <a class="cta-btn" href="#">Contact Us</a>
+        <p> Walex Biz Nig. delivers solutions globally. Let's discuss how we can help you.</p>
+        <a class="cta-btn" href="{% url 'contact' %}">Contact Us</a>
       </div>
     </section>
 

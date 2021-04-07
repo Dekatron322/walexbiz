@@ -1,5 +1,6 @@
 {% extends 'main/base.html' %}
 {% load static %}
+{% block title %} | Services{% endblock %}
 {% if service_header %}
 {% block content %}
 
@@ -17,7 +18,7 @@
           <div class="carousel-item active" style="background-image: url({% static 'main/img/MicrosoftTeams-image.png' %}); object-fit: contain; height: 350px">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 style=" margin-top: 55px">{{ rs.shc_one | safe }}</h2>
+                <h2 style=" margin-top: 55px; font-family: Quicksand">{{ rs.shc_one | safe }}</h2>
                 <p style="font-size: 20px">{{ rs.shc_two | safe }}</p>
               </div>
             </div>
@@ -35,7 +36,7 @@
       <div class="container">
       	{% for rs in service_body %}
         <header class="section-header">
-          <h3>{{ rs.sbhcontent_one }}</h3>
+          <h3 style="font-family: Quicksand">{{ rs.sbhcontent_one }}</h3>
 
           <p>{{ rs.sbhcontent_two }}</p>
         </header>
@@ -74,7 +75,7 @@
     {% endif %}
 
     {% if service_process %}
-      <section id="contact" class="section-bg wow fadeInUp" style="background-image: linear-gradient(0deg, #fff 0%, #cccccc 20%, #fff 100%);">
+      <section id="contact" class="section-bg wow fadeInUp" style="background-color: #cccccc">
       <div class="container">
 
         <div class="section-header">
@@ -132,7 +133,8 @@
             </p>
 
             <div class="social-links center" >
-              <p><i style="color: #18d26e" class="icofont-check"></i>Python   <i style="color: #18d26e" class="icofont-check"></i>Django  <i style="color: #18d26e" class="icofont-check"></i>AngularJS  <i style="color: #18d26e" class="icofont-check"></i>PHP   <i style="color: #18d26e" class="icofont-check"></i>JavaScript   <i style="color: #18d26e" class="icofont-check"></i>JQuery  <i style="color: #18d26e" class="icofont-check"></i>Bootstrap  <i style="color: #18d26e" class="icofont-check"></i>HTML 5  <i style="color: #18d26e" class="icofont-check"></i>CSS 3</p>
+              <p><i style="color: #18d26e" class="icofont-check"></i>Python   <i style="color: #18d26e" class="icofont-check"></i>Django  <i style="color: #18d26e" class="icofont-check"></i>AngularJS  <i style="color: #18d26e" class="icofont-check"></i>PHP   <i style="color: #18d26e" class="icofont-check"></i>JavaScript   <i style="color: #18d26e" class="icofont-check"></i>JQuery  <i style="color: #18d26e" class="icofont-check"></i>Bootstrap  <i style="color: #18d26e" class="icofont-check"></i>HTML 5  <i style="color: #18d26e" class="icofont-check"></i>CSS 3 <i style="color: #18d26e" class="icofont-check"></i>React Js  <i style="color: #18d26e" class="icofont-check"></i>React Native  <i style="color: #18d26e" class="icofont-check"></i>Ionic  <i style="color: #18d26e" class="icofont-check"></i>Flutter  <i style="color: #18d26e" class="icofont-check"></i>Xamarin  <i style="color: #18d26e" class="icofont-check"></i>.NET</p>
+
             </div>
 
         </div>
@@ -150,14 +152,14 @@
       <div class="container">
 
         <header class="section-header wow fadeInUp">
-          <h3 style="margin-bottom: 60px">Key Features</h3>
+          <h3 style="margin-bottom: 60px; font-family: Quicksand">Key Features</h3>
         </header>
 
         <div class="row">
           {% for rs in service_feature %}
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
             <div class="icon"><i class="{{ rs.process_icon | safe }}"></i></div>
-            <h4 class="title"><a href="">{{ rs.process_title }}</a></h4>
+            <h4 style="font-family: Quicksand" class="title"><a href="">{{ rs.process_title }}</a></h4>
             <p class="description">{{ rs.description }}</p>
           </div>
           {% endfor %}

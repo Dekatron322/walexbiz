@@ -43,6 +43,11 @@
     animation-name: show-toast;
     animation-duration: 4s;
 }
+@media(max-width: 450px) {
+    h3{
+      font-size: 15px !important;
+    }
+  }
 </style>
 <section id="intro" style="height: 450px">
     <div class="intro-container">
@@ -55,7 +60,7 @@
           <div class="carousel-item active" style="background-image: url({% static 'main/img/MicrosoftTeams-image.png' %}); object-fit: contain; height: 450px">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>Let's Talk</h2>
+                <h2 style="font-family: Quicksand">Let's Talk</h2>
                 <h6 style="color: #fff">Contact us for a no-obligation consultation.</h6>
                 <a href="/" class="btn-get-started scrollto"><i class="ri-home-3-fill"></i> Return Home</a>
               </div>
@@ -84,7 +89,7 @@
       <div class="container">
 
         <div class="section-header">
-          <h3>Walex Biz Nig delivers solutions globally.</h3>
+          <h3 style="font-family: Quicksand">Walex Biz Nig delivers solutions globally.</h3>
           <p>Let's discuss how we can help you.</p>
         </div>
 
@@ -107,13 +112,12 @@
           </div>
 
           <div class="col-md-4">
-            <div class="contact-email">
-              <img style="height: 70%; width: 20%; margin-bottom: 20px" src="{% static 'main/img/PngItem_774692.png' %}">
+            <div class="contact-phone">
+              <img style="height: 100%; width: 20%;" src="{% static 'main/img/PngItem_774692.png' %}"><br><br>
               <h3>Email</h3>
-              <p><a href="mailto:{{ setting.email }}">{{ setting.email }}</a></p>
+              <p><a href="tel:{{ setting.phone }}">{{ setting.email }}</a></p>
             </div>
           </div>
-
         </div>
 
         <div class="form">
@@ -124,32 +128,32 @@
                     <h3 >Get In Touch</h3>
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
-                            <div class="form-group" style="box-shadow: 5px 5px 10px #111; border-radius: 6px;">
+                            <div class="form-group" style="box-shadow: 5px 5px 10px #cccccc; border-radius: 6px;">
                                 <input type="text" class="form-control" name="name" id="name" placeholder="Name*">
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                            <div class="form-group" style="box-shadow: 5px 5px 10px #111; border-radius: 6px;">
+                            <div class="form-group" style="box-shadow: 5px 5px 10px #cccccc; border-radius: 6px;">
                                 <input class="form-control" type="text" name="email" placeholder="Email *">
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div class="form-group" style="box-shadow: 5px 5px 10px #111; border-radius: 15px;">
+                            <div class="form-group" style="box-shadow: 5px 5px 10px #cccccc; border-radius: 15px;">
                                 <input class="form-control" name="phone" type="text" placeholder="Phone *">
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div class="form-group" style="box-shadow: 5px 5px 10px #111; border-radius: 15px;">
+                            <div class="form-group" style="box-shadow: 5px 5px 10px #cccccc; border-radius: 15px;">
                                 <input class="form-control" name="subject" type="text" placeholder="Subject *">
                             </div>
                         </div>
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                            <div class="form-group" style="box-shadow: 5px 5px 10px #111; border-radius: 15px;">
+                            <div class="form-group" style="box-shadow: 5px 5px 10px #cccccc; border-radius: 15px;">
                                 <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
                             </div>
                         </div>
                     </div>
-                    <div class="text-center"><button style="box-shadow: 5px 5px 10px #111; border-radius: 6px;" type="submit">Send Message</button></div>
+                    <div class="text-center"><button style="box-shadow: 5px 5px 10px #cccccc; border-radius: 6px;" type="submit">Send Message</button></div>
                 </form>
         </div>
 
