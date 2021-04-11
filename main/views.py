@@ -1,6 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from main.models import *
 from . import views
+from .forms import *
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, HttpResponseRedirect
 # Create your views here.
 def index(request):
 	setting = Setting.objects.get(pk=1)
@@ -80,3 +85,148 @@ def service_detail(request, id, slug):
 			}
 
 	return render(request, 'main/service_detail.html', context)
+
+def message(request):
+	contacts = Contact.objects.all()
+
+	context = {'contacts':contacts}
+	return render(request, "contact/all_contacts.html", context)
+
+def login_form(request):
+	if request.method == 'POST':
+		username = request.POST['username']
+		password = request.POST['password']
+		user = authenticate(request, username=username, password=password)
+		if user is not None:
+			login(request, user)
+			messages.success(request, "welcome "+user.username)
+			current_user = request.user
+			return HttpResponseRedirect('/setting')
+		else:
+			messages.warning(request, "Login Error !! username or password is incorrect")
+			return HttpResponseRedirect('/login')
+	setting = Setting.objects.all()
+	current_user = request.user
+	context = {
+		'setting':setting,
+	}
+	return render(request, 'main/login_form.html', context)
+
+@login_required(login_url='/login')
+def setting(request):
+	all_setting = Setting.objects.all()
+
+	context = {'all_setting':all_setting}
+
+	return render(request, 'main/setting.html', context)
+
+
+def add_setting(request):
+	form = SettingCreateForm(request.POST or None)
+	if form.is_valid():
+		form.save()
+		messages.success(request, 'Successful')
+		return redirect('/setting')
+	context = {
+		"form":form,
+	}
+	return render(request, "main/add_setting.html", context)
+
+
+
+def update_setting(request, pk):
+	queryset = Setting.objects.get(id=pk)
+	form = SettingUpdateForm(instance=queryset)
+	if request.method == 'POST':
+		form = SettingUpdateForm(request.POST, request.FILES, instance=queryset)
+		if form.is_valid():
+			form.save()
+			messages.success(request, 'updated')
+			return redirect('/setting')
+
+	context = {
+		'form':form
+	}
+
+	return render(request, "main/add_setting.html", context)
+
+def add_service(request):
+	form = AddServiceForm(request.POST, request.FILES)
+	if form.is_valid():
+		form.save()
+		messages.success(request, 'Successfully Added')
+		return redirect('/')
+	context = {
+		"form":form
+	}
+	return render(request, "main/add_service.html", context)
+
+def service_header(request):
+	form = ServiceHeaderForm(request.POST or None)
+	if form.is_valid():
+		form.save()
+		messages.success(request, 'Successfully added')
+		return redirect('/')
+	context = {
+		'form':form,
+	}
+	return render(request, "main/service_header.html", context)
+
+
+def service_process(request):
+	form = ServiceProcessForm(request.POST or None)
+	if form.is_valid():
+		form.save()
+		messages.success(request, 'Successfully added')
+		return redirect('/')
+	context = {
+		'form':form,
+	}
+	return render(request, "main/service_header.html", context)
+
+def service_feature(request):
+	form = ServiceFeatureForm(request.POST or None)
+	if form.is_valid():
+		form.save()
+		messages.success(request, 'Successfully Added')
+		return redirect('/')
+	context = {
+			'form':form,
+	}
+	return render(request, 'main/service_header.html', context)
+
+
+def service_body(request):
+	form = ServiceBodyForm(request.POST, request.FILES)
+	if form.is_valid():
+		form.save()
+		messages.success(request, 'Successfully Added')
+		return redirect('/')
+	context = {
+		"form":form
+	}
+	return render(request, "main/service_header.html", context)
+
+def all_service_header(request):
+	service_header = ServiceHeader.objects.all()
+
+	context = {'service_header': service_header}
+
+	return render(request, 'main/all_service_header.html', context) 
+
+def update_service_header(request, pk):
+	queryset = ServiceHeader.objects.get(id=pk)
+	form = ServiceHeaderUpdate(instance=queryset)
+	if request.method == 'POST':
+		form = SettingUpdateForm(request.POST, instance=queryset)
+		if form.is_valid():
+			form.save()
+			messages.success(request, 'updated')
+			return redirect('/setting')
+
+	context = {
+		'form':form
+	}
+
+	return render(request, "main/service_header_update.html", context)
+

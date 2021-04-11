@@ -1,0 +1,20 @@
+{% for rs in all_setting %}
+	{{ rs.title }}<br>
+	{{ rs.description }}<br>
+	{{ rs.keywords }}<br>
+	{{ rs.address }}<br>
+	<img height="120px" width="100px" src="{{ rs.image.url }}"><br>
+	<img height="120px" width="100px" src="{{ rs.footer_logo.url }}"><br>
+	<img height="120px" width="100px" src="{{ rs.fav.url }}"><br>
+	{{ rs.facebook }}<br>
+	{{ rs.instagram }}<br>
+	{{ rs.twitter }}<br>
+	{{ rs.aboutus }}<br>
+	{{ rs.contact }}<br>
+	{{ rs.footer_text }}<br>
+	{{ rs.references }}<br>
+
+	<div><a href="/update_setting/{{ rs.pk }}">update</a>
+	</div>
+
+{% endfor %}

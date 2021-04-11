@@ -1,0 +1,7 @@
+{% for rs in service_header %}
+	{{ rs.service }}<br>
+	{{ rs.shc_two }}<br>
+	{{ rs.shc_one }}<br>
+<div><a href="/update_service_header/{{ rs.pk }}">update</a><br>
+{% endfor %}
+
